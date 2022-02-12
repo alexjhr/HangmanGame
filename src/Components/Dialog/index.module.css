@@ -1,0 +1,58 @@
+.container {
+	align-items: center;
+	display: flex;
+	font-size: 1.1em;
+	height: 100vh;
+	justify-content: center;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.dialog {
+	background: #fff;
+	padding: 1em;
+	min-width: 50%;
+}
+
+.dialog_title {
+	font-size: 1.2em;
+	letter-spacing: .2em;
+	margin: 0;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.dialog_description {
+	margin: 0;
+	padding: 1em;
+	text-align: center;
+}
+
+.dialog_buttons {
+	display: inline-flex;
+	gap: 1em;
+	width: 100%;
+}
+.dialog_button {
+	background: rgb(245, 241, 241);
+	color: rgb(40, 40, 40);
+	cursor: pointer;
+	font-family: 'xkcd';
+	font-size: .8em;
+	outline: none;
+	padding: 1em;
+	width: 100%;
+	text-transform:uppercase;
+}
+
+.dialog_button:hover {
+	color: #000;
+	background: rgb(235, 231, 231);
+}
+
+.dialog, .dialog_button {
+	/* Thanks to https://codepen.io/tmrDevelops/pen/VeRvKX*/
+	border: solid 2px #41403E;
+	border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
