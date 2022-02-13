@@ -9,7 +9,7 @@ body {
 
 @font-face {
 	font-family: 'xkbd';
-	src: url('/assets/xkcd-Regular.otf');
+	src: url('./xkcd-Regular.otf');
 }
 
 .gameContainer {
