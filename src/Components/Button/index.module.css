@@ -1,0 +1,26 @@
+.buttons {
+	display: inline-flex;
+	gap: 1em;
+	width: 100%;
+}
+
+.button {
+	background: rgb(245, 241, 241);
+	color: rgb(40, 40, 40);
+	cursor: pointer;
+	font-family: 'xkcd';
+	font-size: .8em;
+	outline: none;
+	padding: 1.6em;
+	width: 100%;
+	text-transform: uppercase;
+
+	/* Thanks to https://codepen.io/tmrDevelops/pen/VeRvKX*/
+	border: solid 2px #41403E;
+	border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+.button:hover {
+	color: #000;
+	background: rgb(235, 231, 231);
+}

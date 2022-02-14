@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
+import { gameTitle } from './index.module.css'
 import StickMan from '../Stickman'
 import Keyboard from '../Keyboard'
-import classes from './index.module.css'
 import UnknownWord from '../UnknownWord'
 import Dialog from '../Dialog'
 
@@ -53,8 +53,8 @@ export default function Game() {
 		["Nuevo juego", onRestartGame]
 	]
 
-	return <div className={classes.gameContainer}>
-		<h1 className={classes.gameTitle}>The Hanged Game</h1>
+	return <>
+		<h1 className={gameTitle}>The Hanged Game</h1>
 		<StickMan mistakes={mistakes}></StickMan>
 
 		<UnknownWord keyword={keyword} input={text} />
@@ -67,5 +67,5 @@ export default function Game() {
 		{winner &&
 			<Dialog title="Ganaste!" buttons={winnerDialog}>¡Descubriste la palabra, felicidades! </Dialog>
 		}
-	</div>
+	</>
 }
