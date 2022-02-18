@@ -12,12 +12,34 @@ const words = [
 	'venezuela',
 ];
 
+function random (array) {
+	return array[ Math.floor( Math.random() * array.length ) ];
+}
+
 export default function Game() {
-	const [keyword, setKeyword] = useState(words[Math.floor(Math.random() * words.length)])
 	const [mistakes, setMistake] = useState(0)
 	const [text, setText] = useState('')
 	const [winner, setWinner] = useState(false)
 
+	const [loading, setLoading] = useState(true)
+	const [keyword, setKeyword] = useState('')
+	const [listKeywords, setListKeywords] = useState([])
+
+	useEffect(function() {
+		if(!listKeywords.length) {
+			fetch('./lang/es.json')
+			.then((res) => res.json())
+			.then((data) => {
+				setLoading(false)
+
+				setListKeywords(data.words)
+				setKeyword(random(data.words))
+			})	
+		}
+
+		console.log(keyword)
+	}, [keyword])
+	
 	const onKeyboard = (key) => {
 		if(keyword.indexOf(key) == -1) {
 			setMistake((m) => m + 1)
@@ -30,12 +52,12 @@ export default function Game() {
 		setMistake(0)
 		setWinner(false)
 
-		setKeyword(words[Math.floor(Math.random() * words.length)])
+		setKeyword(random(listKeywords))
 	}
 
 	//
 	useEffect(() => {
-		if(text == '') return;
+		if(text === '') return;
 
 		const knowWord = keyword.split('').map(l => (text.indexOf(l) !== -1 ? l : '_')).join('');
 		if(keyword == knowWord) setWinner(true)
@@ -53,17 +75,21 @@ export default function Game() {
 	]
 
 	return <>
-		<StickMan mistakes={mistakes}></StickMan>
+		{loading ?
+			<p>cargando</p>
+		: <>
+			<StickMan mistakes={mistakes}></StickMan>
 
-		<UnknownWord keyword={keyword} input={text} />
-		<Keyboard oneUse={true} text={text} onPressKey={onKeyboard}/>
+			<UnknownWord keyword={keyword} input={text} />
+			<Keyboard oneUse={true} text={text} onPressKey={onKeyboard}/>
 
-		{isLoser &&
-			<Dialog title="Perdiste!" buttons={loserDialog}>La palabra era "{keyword}"</Dialog>
-		}
+			{isLoser &&
+				<Dialog title="Perdiste!" buttons={loserDialog}>La palabra era "{keyword}"</Dialog>
+			}
 
-		{winner &&
-			<Dialog title="Ganaste!" buttons={winnerDialog}>¡Descubriste la palabra, felicidades! </Dialog>
-		}
+			{winner &&
+				<Dialog title="Ganaste!" buttons={winnerDialog}>¡Descubriste la palabra, felicidades! </Dialog>
+			}
+		</>}
 	</>
 }
