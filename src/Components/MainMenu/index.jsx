@@ -10,7 +10,7 @@ export default function MainMenu() {
 	}
 
 	const onPressSettings = () => {
-
+		setLocation('/settings')
 	}
 
 	const onPressHelp = () => {
@@ -34,7 +34,7 @@ export default function MainMenu() {
 		]
 	]
 
-	return <div class={classes.container}>
+	return <div className={classes.container}>
 		<h1 className={classes.title}>The Hanged Game</h1>
 		
 		{buttons.map(btn => 

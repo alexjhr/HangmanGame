@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { gameTitle } from './index.module.css'
 import StickMan from '../Stickman'
 import Keyboard from '../Keyboard'
 import UnknownWord from '../UnknownWord'
@@ -54,7 +53,6 @@ export default function Game() {
 	]
 
 	return <>
-		<h1 className={gameTitle}>The Hanged Game</h1>
 		<StickMan mistakes={mistakes}></StickMan>
 
 		<UnknownWord keyword={keyword} input={text} />
