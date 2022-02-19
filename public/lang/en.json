@@ -1,0 +1,20 @@
+{
+	"name": "English",
+	"game_title": "The Hanged Game",
+	"game_play": "Play",
+	"game_settings": "Settings",
+	"game_help": "Help",
+	"game_about": "About",
+	"game_reset": "Reset game",
+	"new_game": "New game",
+	"game_winner": "You win!",
+	"game_lose": "You lose!",
+	"game_winner_d": "You discovered the word, congratulations!",
+	"game_lose_d": "So easy it was, the word was '{keyword}'.",
+
+	"words": [
+		"chicken",
+		"car",
+		"office"
+	]
+}

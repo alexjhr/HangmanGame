@@ -1,0 +1,20 @@
+.select {
+	background: #fff;
+	padding: 1em;
+	min-width: 50%;
+
+	/* Thanks to https://codepen.io/tmrDevelops/pen/VeRvKX*/
+	border: solid 2px #41403E;
+	border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+.button {
+	background: none;
+	color: rgb(40, 40, 40);
+	cursor: pointer;
+	font-family: 'xkcd';
+	outline: none;
+	border: none;
+	font-size: 1.2em;
+	width:40%;
+}

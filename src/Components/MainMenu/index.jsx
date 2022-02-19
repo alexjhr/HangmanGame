@@ -1,9 +1,12 @@
-import classes from './index.module.css'
+import { useLocation } from 'wouter'
+import { useContext } from 'react'
 import Button from '../Button'
-import { useLocation } from 'wouter';
+import classes from './index.module.css'
+import LanguageContext from '../../Context/LanguageContext'
 
 export default function MainMenu() {
 	const [location, setLocation] = useLocation();
+	const { dictionary } = useContext(LanguageContext);
 
 	const onPressPlay = () => {
 		setLocation('/game')
@@ -20,19 +23,19 @@ export default function MainMenu() {
 
 	const buttons = [
 		[
-			["Jugar", onPressPlay]
+			[dictionary.game_play, onPressPlay]
 		],
 		[
-			["Ajustes", onPressSettings]
+			[dictionary.game_settings, onPressSettings]
 		],
 		[
-			["Ayuda", onPressHelp],
-			["Acerca de", onPressAbout]
+			[dictionary.game_help, onPressHelp],
+			[dictionary.game_about, onPressAbout]
 		]
 	]
 
 	return <div className={classes.container}>
-		<h1 className={classes.title}>The Hanged Game</h1>
+		<h1 className={classes.title}>{dictionary.game_title}</h1>
 		
 		{buttons.map((button, i) => 
 			<Button key={'mainbutton' + i} buttons={button}/>

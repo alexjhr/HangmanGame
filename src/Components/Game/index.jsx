@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import StickMan from '../Stickman'
 import Keyboard from '../Keyboard'
 import UnknownWord from '../UnknownWord'
 import Dialog from '../Dialog'
+import LanguageContext from '../../Context/LanguageContext'
 
 function random (array) {
 	return array[ Math.floor( Math.random() * array.length ) ];
@@ -12,26 +13,9 @@ export default function Game() {
 	const [mistakes, setMistake] = useState(0)
 	const [text, setText] = useState('')
 	const [winner, setWinner] = useState(false)
+	const { dictionary } = useContext(LanguageContext)
+	const [keyword, setKeyword] = useState(random(dictionary.words))
 
-	const [loading, setLoading] = useState(true)
-	const [keyword, setKeyword] = useState('')
-	const [listKeywords, setListKeywords] = useState([])
-
-	useEffect(function() {
-		if(!listKeywords.length) {
-			fetch('./lang/es.json')
-			.then((res) => res.json())
-			.then((data) => {
-				setLoading(false)
-
-				setListKeywords(data.words)
-				setKeyword(random(data.words))
-			})	
-		}
-
-		console.log(keyword)
-	}, [keyword])
-	
 	const onKeyboard = (key) => {
 		if(keyword.indexOf(key) == -1) {
 			setMistake((m) => m + 1)
@@ -44,7 +28,7 @@ export default function Game() {
 		setMistake(0)
 		setWinner(false)
 
-		setKeyword(random(listKeywords))
+		setKeyword(random(dictionary.words))
 	}
 
 	//
@@ -59,29 +43,25 @@ export default function Game() {
 	const isLoser = mistakes >= 6;
 
 	const loserDialog = [
-		["Reiniciar", onRestartGame]
+		[dictionary.game_reset, onRestartGame]
 	]
-
 	const winnerDialog = [
-		["Nuevo juego", onRestartGame]
+		[dictionary.new_game, onRestartGame]
 	]
-
 	return <>
-		{loading ?
-			<p>cargando</p>
-		: <>
-			<StickMan mistakes={mistakes}></StickMan>
+		<h1 className='title'>{dictionary.game_title}</h1>
 
-			<UnknownWord keyword={keyword} input={text} />
-			<Keyboard oneUse={true} text={text} onPressKey={onKeyboard}/>
+		<StickMan mistakes={mistakes}></StickMan>
 
-			{isLoser &&
-				<Dialog title="Perdiste!" buttons={loserDialog}>La palabra era "{keyword}"</Dialog>
-			}
+		<UnknownWord keyword={keyword} input={text} />
+		<Keyboard oneUse={true} text={text} onPressKey={onKeyboard}/>
 
-			{winner &&
-				<Dialog title="Ganaste!" buttons={winnerDialog}>¡Descubriste la palabra, felicidades! </Dialog>
-			}
-		</>}
+		{isLoser &&
+			<Dialog title={dictionary.game_lose} buttons={loserDialog}>{dictionary.game_lose_d.replace('{keyword}', keyword)}</Dialog>
+		}
+
+		{winner &&
+			<Dialog title={dictionary.game_winner} buttons={winnerDialog}>{dictionary.game_winner_d}</Dialog>
+		}
 	</>
 }
