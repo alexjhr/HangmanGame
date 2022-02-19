@@ -1,5 +1,4 @@
-import {keyboard, button} from './index.module.css'
-import {useState, useEffect} from 'react'
+import {classes} from './index.module.css'
 
 const letters = 'abcdefghijklmnopqrstuvwxyz'.split('')
 
@@ -8,14 +7,14 @@ export default function Keyboard({text, onPressKey, oneUse = false} = props) {
 		const pressed = oneUse ? text.indexOf(letter) !== -1 : false;
 
 		return <button 
-			className={button}
+			className={classes.button}
 			disabled={pressed}
-			key={letter}
+			key={'keyboard_'+letter}
 			onClick={() => onPressKey(letter)}
 		>{letter}</button>
 	})
 
-	return <div className={keyboard}>
+	return <div className={classes.keyboard}>
 		{buttons}
 	</div>
 }

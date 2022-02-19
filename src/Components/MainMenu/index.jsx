@@ -8,15 +8,12 @@ export default function MainMenu() {
 	const onPressPlay = () => {
 		setLocation('/game')
 	}
-
 	const onPressSettings = () => {
 		setLocation('/settings')
 	}
-
 	const onPressHelp = () => {
 
 	}
-
 	const onPressAbout = () => {
 
 	}
@@ -37,8 +34,8 @@ export default function MainMenu() {
 	return <div className={classes.container}>
 		<h1 className={classes.title}>The Hanged Game</h1>
 		
-		{buttons.map(btn => 
-			<Button buttons={btn}/>
+		{buttons.map((button, i) => 
+			<Button key={'mainbutton' + i} buttons={button}/>
 		)}
 	</div>
 }

@@ -4,14 +4,6 @@ import Keyboard from '../Keyboard'
 import UnknownWord from '../UnknownWord'
 import Dialog from '../Dialog'
 
-const words = [
-	'perro',
-	'gato',
-	'murcielago',
-	'futbol',
-	'venezuela',
-];
-
 function random (array) {
 	return array[ Math.floor( Math.random() * array.length ) ];
 }
