@@ -2,7 +2,7 @@
 	"name": "Español",
 	"game_title": "Ahorcadito",
 	"game_play": "Jugar",
-	"game_settings": "Ajustes",
+	"game_settings": "Ajustes del Juego",
 	"game_help": "Ayuda",
 	"game_about": "Acerca de",
 	"game_reset": "Reiniciar",
@@ -11,6 +11,8 @@
 	"game_lose": "¡Perdiste!",
 	"game_winner_d": "¡Descubriste la palabra, felicidades!",
 	"game_lose_d": "Tan facil que estaba, la palabra era '{keyword}'.",
+	"game_language": "Idioma",
+	"game_back": "Atras",
 
 	"words": [
 		"araña",

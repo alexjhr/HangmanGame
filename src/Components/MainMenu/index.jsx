@@ -5,7 +5,7 @@ import classes from './index.module.css'
 import LanguageContext from '../../Context/LanguageContext'
 
 export default function MainMenu() {
-	const [location, setLocation] = useLocation();
+	const [_, setLocation] = useLocation();
 	const { dictionary } = useContext(LanguageContext);
 
 	const onPressPlay = () => {

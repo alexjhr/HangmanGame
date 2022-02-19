@@ -1,12 +1,4 @@
-.select {
-	background: #fff;
-	padding: .8em;
-	min-width: 50%;
-	display: inline-flex;
-    justify-content: space-evenly;
-}
-
-.button {
+.back {
 	background: none;
 	border: none;
 	color: rgb(40, 40, 40);

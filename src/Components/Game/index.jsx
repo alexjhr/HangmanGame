@@ -3,6 +3,7 @@ import StickMan from '../Stickman'
 import Keyboard from '../Keyboard'
 import UnknownWord from '../UnknownWord'
 import Dialog from '../Dialog'
+import BackButton from '../BackButton'
 import LanguageContext from '../../Context/LanguageContext'
 
 function random (array) {
@@ -49,6 +50,7 @@ export default function Game() {
 		[dictionary.new_game, onRestartGame]
 	]
 	return <>
+		<BackButton />
 		<h1 className='title'>{dictionary.game_title}</h1>
 
 		<StickMan mistakes={mistakes}></StickMan>
