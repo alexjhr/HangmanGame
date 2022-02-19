@@ -5,15 +5,16 @@
 }
 
 .button {
-	background: rgb(245, 241, 241);
+	font-family: xkcd-script;
+	font-size: .8em;
+	font-weight: bold;
+	padding: 1em;
+	background: rgba(0,0,0,.030);
 	color: rgb(40, 40, 40);
 	cursor: pointer;
-	font-family: 'xkcd';
-	font-size: .8em;
 	outline: none;
-	padding: 1.6em;
-	width: 100%;
 	text-transform: uppercase;
+	width: 100%;
 
 	/* Thanks to https://codepen.io/tmrDevelops/pen/VeRvKX*/
 	border: solid 2px #41403E;

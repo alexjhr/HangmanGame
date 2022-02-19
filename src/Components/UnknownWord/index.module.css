@@ -2,11 +2,12 @@
 	display: inline-flex;
 	width: 100%;
 	justify-content: center;
+	margin-bottom: 1em;
 }
 
 .letter {
 	font-size: 2em;
-	font-family: 'xkbd';
+	font-family: xkcd-script;
 	display: inline-block;
 	margin: .25em;
 	padding: .25em;
@@ -16,6 +17,7 @@
 .letter[data-actived=true]::before {
 	content: attr(data-letter);
 	display: inline-block;
-	font-size: .80em;
+	font-size: .85em;
 	position: absolute;
+	padding-left: 2px;
 }

@@ -1,7 +1,8 @@
 .container {
 	align-items: center;
+	background: rgba(0, 0, 0, 0.40);
 	display: flex;
-	font-size: 1.1em;
+	font-size: 1.2em;
 	height: 100vh;
 	justify-content: center;
 	position: absolute;
@@ -13,6 +14,7 @@
 	background: #fff;
 	padding: 1em;
 	min-width: 50%;
+	max-width: 80%;
 
 	/* Thanks to https://codepen.io/tmrDevelops/pen/VeRvKX*/
 	border: solid 2px #41403E;
@@ -28,7 +30,11 @@
 }
 
 .dialog_description {
+	font-size: .8em;
+
+	display: block;
 	margin: 0;
-	padding: 1em;
+	padding-top: .5em;
+	padding-bottom: 1em;
 	text-align: center;
 }

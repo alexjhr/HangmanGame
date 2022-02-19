@@ -8,16 +8,19 @@ body {
 }
 
 @font-face {
-	font-family: 'xkbd';
-	src: url('/src/xkcd-Regular.otf');
+	font-family: xkcd-script;
+	src: 
+		url('/src/xkcd-script.woff') format('woff'),
+		url('/src/xkcd-script.ttf') format('ttf')
+	;
 }
 
 .container {
-	font-size: 14px;
-	font-family: 'xkbd';
+	font-size: 16px;
+	font-family: xkcd-script;
 }
 
 .title {
-	margin: 1em 0;
+	margin: .8em 0;
 	padding-left: 1em;
 }
