@@ -1,7 +1,7 @@
 .select {
 	background: #fff;
 	padding: .8em;
-	min-width: 60%;
+	min-width: 40%;
 	display: inline-flex;
     justify-content: space-evenly;
 }

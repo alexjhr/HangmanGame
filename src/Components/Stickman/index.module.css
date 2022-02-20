@@ -1,9 +1,12 @@
 .container {
+	max-height: 60vh;
 	width: 100%;
 	display: inline-flex;
 	justify-content: center;
 }
 
 .stickman {
-	width: 40%;
+	width: fit-content;
 }
+
+@media (min-width: 700px) { }

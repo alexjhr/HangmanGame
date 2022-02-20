@@ -1,16 +1,17 @@
 .container {
-	display: inline-flex;
-	width: 100%;
-	justify-content: center;
-	min-height: 5em;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    min-height: 5em;
+    flex-wrap: wrap;
+	gap: 1em;
 }
 
 .letter {
 	font-size: 2em;
 	font-family: xkcd-script;
 	display: inline-block;
-	margin: .25em;
-	padding: .25em;
+	padding: .30em;
 	text-transform: capitalize; 
 }
 
