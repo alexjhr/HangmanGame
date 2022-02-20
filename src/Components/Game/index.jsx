@@ -1,10 +1,15 @@
 import { useState, useEffect, useContext } from 'react'
+import useSound from 'use-sound'
 import StickMan from '../Stickman'
 import Keyboard from '../Keyboard'
 import UnknownWord from '../UnknownWord'
 import Dialog from '../Dialog'
 import BackButton from '../BackButton'
-import LanguageContext from '../../Context/LanguageContext'
+import SettingsContext from '../../Context/SettingsContext'
+
+import hangingSfx from '../../Sounds/sfx_hanging.wav'
+import gameoverSfx from '../../Sounds/sfx_gameover.wav'
+import winSfx from '../../Sounds/sfx_win.mp3'
 
 function random (array) {
 	return array[ Math.floor( Math.random() * array.length ) ];
@@ -14,8 +19,12 @@ export default function Game() {
 	const [mistakes, setMistake] = useState(0)
 	const [text, setText] = useState('')
 	const [winner, setWinner] = useState(false)
-	const { dictionary } = useContext(LanguageContext)
+	const { dictionary, enableSound } = useContext(SettingsContext)
 	const [keyword, setKeyword] = useState(random(dictionary.words))
+
+	const [playHanging, {stop: stopHanging}] = useSound(hangingSfx)
+	const [playGameOver, {stop: stopGameOver}] = useSound(gameoverSfx)
+	const [playWin, {stop: stopWin}] = useSound(winSfx)
 
 	const onKeyboard = (key) => {
 		if(keyword.indexOf(key) == -1) {
@@ -25,10 +34,19 @@ export default function Game() {
 	}
 
 	const onRestartGame = () => {
+		// Stop audio
+		if(enableSound) {
+			stopWin()
+			stopHanging()
+			stopGameOver()	
+		}
+
+		// Reset game vars
 		setText('')
 		setMistake(0)
 		setWinner(false)
 
+		// Set other keyword
 		setKeyword(random(dictionary.words))
 	}
 
@@ -42,6 +60,15 @@ export default function Game() {
 
 	// Show message box "you lost"?
 	const isLoser = mistakes >= 6;
+	if(enableSound) {
+		if(isLoser) {
+			// Play lose sounds
+			playHanging()
+			playGameOver()
+		}
+		// Play win sound
+		else if(winner) playWin()
+	}
 
 	const loserDialog = [
 		[dictionary.game_reset, onRestartGame]

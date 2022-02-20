@@ -2,11 +2,11 @@ import { useLocation } from 'wouter'
 import { useContext } from 'react'
 import Button from '../Button'
 import classes from './index.module.css'
-import LanguageContext from '../../Context/LanguageContext'
+import SettingsContext from '../../Context/SettingsContext'
 
 export default function MainMenu() {
 	const [_, setLocation] = useLocation();
-	const { dictionary } = useContext(LanguageContext);
+	const { dictionary } = useContext(SettingsContext);
 
 	const onPressPlay = () => {
 		setLocation('/game')

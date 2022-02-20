@@ -6,18 +6,18 @@ import MainMenu from './Components/MainMenu'
 import Settings from './Components/Settings'
 import useHashLocation from './Hook/useHashLocation'
 
-import { LanguageContextProvider } from './Context/LanguageContext'
+import { SettingsContextProvider } from './Context/SettingsContext'
 
 ReactDOM.render(
 	<React.StrictMode>
 		<Router hook={useHashLocation}>
-			<LanguageContextProvider>
+			<SettingsContextProvider>
 				<div className='container'>
 					<Route path="/" component={MainMenu} />
 					<Route path="/game" component={Game} />
 					<Route path="/settings" component={Settings} />
 				</div>
-			</LanguageContextProvider>
+			</SettingsContextProvider>
 		</Router>
 	</React.StrictMode>,
 	document.getElementById('root')

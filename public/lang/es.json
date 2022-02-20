@@ -13,6 +13,9 @@
 	"game_lose_d": "Tan facil que estaba, la palabra era '{keyword}'.",
 	"game_language": "Idioma",
 	"game_back": "Atras",
+	"game_sound": "Sonido",
+	"game_enabled": "Activado",
+	"game_disabled": "Desactivado",
 
 	"words": [
 		"araña",

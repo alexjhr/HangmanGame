@@ -1,12 +1,26 @@
+import { useContext} from 'react'
+import SettingsContext from '../../Context/SettingsContext'
 import classes from './index.module.css'
 
+import useSound from 'use-sound'
+import buttonSfx from '../../Sounds/sfx_button.wav'
+
 export default function Select({value, update, values, children} = props) {
+	const [play] = useSound(buttonSfx)
+	const { enableSound } = useContext(SettingsContext)
+
 	const onBack = () => {
+		if(enableSound) {
+			play()
+		}
 		const backOption = values[values.indexOf(value) - 1]
 		update(backOption !== undefined ? backOption : values[values.length - 1])
 	}
 
 	const onNext = () => {
+		if(enableSound) {
+			play()
+		}
 		const nextOption = values[values.indexOf(value) + 1]
 		update(nextOption !== undefined ? nextOption : values[0])
 	}
