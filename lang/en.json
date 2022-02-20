@@ -11,6 +11,11 @@
 	"game_lose": "You lose!",
 	"game_winner_d": "You discovered the word, congratulations!",
 	"game_lose_d": "So easy it was, the word was '{keyword}'.",
+	"game_language": "Language",
+	"game_back": "Back",
+	"game_sound": "Sound",
+	"game_enabled": "Enabled",
+	"game_disabled": "Disabled",
 
 	"words": [
 		"chicken",
