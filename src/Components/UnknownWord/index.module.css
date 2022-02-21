@@ -1,24 +1,27 @@
 .container {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    min-height: 5em;
-    flex-wrap: wrap;
-	gap: 1em;
+	display: flex;
+	width: 100%;
+	justify-content: center;
 }
 
 .letter {
-	font-size: 2em;
+	font-size: calc(4vw + 4vh);
 	font-family: xkcd-script;
 	display: inline-block;
-	padding: .30em;
 	text-transform: capitalize; 
 }
 
 .letter[data-actived=true]::before {
 	content: attr(data-letter);
-	display: inline-block;
-	font-size: .85em;
+	display: inline-flex;
+	font-size: .7em;
 	position: absolute;
-	padding-left: 2px;
+	width: .8em;
+	justify-content: center;
+}
+
+@media (min-width: 900px) {
+	.letter {
+		font-size: calc(3vw + 3vh);
+	}
 }

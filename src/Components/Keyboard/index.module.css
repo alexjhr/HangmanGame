@@ -1,16 +1,26 @@
 .keyboard {
+	border-top: solid 2px #41403E;
+	bottom: 0;
+	position: absolute;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
+	width: 100%;
+	justify-content: space-around;
 }
 
 .button {
-	font-size: 1.3em;
-	margin: 0.20em;
-	padding: 0.5em;
+	flex-basis: 6vw;
+	font-size: 1.5em;
+	padding: 0.4em;
 	cursor: pointer;
-	background: none;
-	font-family: xkcd-script;
+	background: #fff;
 	border: none;
+	font-family: xkcd-script;
 	text-transform: capitalize;
+}
+
+@media (min-width: 900px) {
+	.button {
+		flex-basis: initial;
+	}
 }
