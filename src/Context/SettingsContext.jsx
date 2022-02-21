@@ -8,9 +8,10 @@ export function SettingsContextProvider ({children}) {
 	const [language, setLanguage] = useState(
 		defaultSettings?.language || 'en'
 	)
-	const [enableSound, setSound] = useState(
-		defaultSettings?.enableSound || true
+	const [enableSound, setEnableSound] = useState(
+		defaultSettings === null ? true : defaultSettings.enableSound
 	)
+		
 	const [loaded, setLoaded] = useState(false)
 	const [dictionary, setDictionary] = useState({})
 
@@ -20,6 +21,9 @@ export function SettingsContextProvider ({children}) {
 			enableSound
 		})
 		window.localStorage.setItem('hangman', updateJSON)
+	}
+	if(defaultSettings?.language != language || defaultSettings?.enableSound != enableSound) {
+		updateSettings()
 	}
 
 	useEffect(function() {
@@ -37,13 +41,8 @@ export function SettingsContextProvider ({children}) {
 		dictionary,
 		enableSound,
 
-		setLanguage: selected => {
-		  setLanguage(selected), updateSettings()
-		},
-
-		setEnableSound: enabled => {
-			setSound(enabled), updateSettings()
-		}
+		setLanguage,
+		setEnableSound,
 	}
 	return <Context.Provider value={provider}>
 		{loaded ? children : ''}
