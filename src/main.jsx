@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route } from 'wouter'
-import Game from './Components/Game'
-import MainMenu from './Components/MainMenu'
-import Settings from './Components/Settings'
+import Game from './Pages/Game'
+import MainMenu from './Pages/MainMenu'
+import Settings from './Pages/Settings'
 import useHashLocation from './Hook/useHashLocation'
 
 import { SettingsContextProvider } from './Context/SettingsContext'

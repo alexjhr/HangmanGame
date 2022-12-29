@@ -1,6 +1,6 @@
 import { useLocation } from 'wouter'
 import { useContext } from 'react'
-import Button from '../Button'
+import Button from '../../Components/Button'
 import classes from './index.module.css'
 import SettingsContext from '../../Context/SettingsContext'
 
