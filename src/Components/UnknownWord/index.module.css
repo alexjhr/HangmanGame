@@ -4,11 +4,15 @@
 	justify-content: center;
 }
 
-.letter {
+.letter, .spacing {
 	font-size: calc(4vw + 4vh);
 	font-family: xkcd-script;
 	display: inline-block;
 	text-transform: capitalize; 
+}
+
+.spacing {
+	color: #fff;
 }
 
 .letter[data-actived=true]::before {

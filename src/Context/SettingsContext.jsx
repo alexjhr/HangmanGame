@@ -11,6 +11,7 @@ export function SettingsContextProvider ({children}) {
 	const [enableSound, setEnableSound] = useState(
 		defaultSettings === null ? true : defaultSettings.enableSound
 	)
+	const [category, setCategory] = useState('');
 		
 	const [loaded, setLoaded] = useState(false)
 	const [dictionary, setDictionary] = useState({})
@@ -37,11 +38,13 @@ export function SettingsContextProvider ({children}) {
 	}, [dictionary])
 
 	const provider = {
+		category,
 		language,
 		dictionary,
 		enableSound,
 
 		setLanguage,
+		setCategory,
 		setEnableSound,
 	}
 	return <Context.Provider value={provider}>

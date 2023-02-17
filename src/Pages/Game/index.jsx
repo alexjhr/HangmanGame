@@ -14,13 +14,17 @@ import winSfx from '../../Sounds/sfx_win.mp3'
 function random (array) {
 	return array[ Math.floor( Math.random() * array.length ) ];
 }
+function cleanKeyword(keyword) {
+	return keyword.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
 
 export default function Game() {
 	const [mistakes, setMistake] = useState(0)
 	const [text, setText] = useState('')
 	const [winner, setWinner] = useState(false)
-	const { dictionary, enableSound } = useContext(SettingsContext)
-	const [keyword, setKeyword] = useState(random(dictionary.words))
+	const { dictionary, category, enableSound } = useContext(SettingsContext)
+	const [keyword, setKeyword] = useState(cleanKeyword(random(dictionary.words[category])))
 
 	const [playHanging, {stop: stopHanging}] = useSound(hangingSfx)
 	const [playGameOver, {stop: stopGameOver}] = useSound(gameoverSfx)
@@ -54,7 +58,12 @@ export default function Game() {
 	useEffect(() => {
 		if(text === '') return;
 
-		const knowWord = keyword.split('').map(l => (text.indexOf(l) !== -1 ? l : '_')).join('');
+		const knowWord = keyword.split('').map(l => {
+			if(text.indexOf(l) !== -1) return l;
+
+			return l == ' ' ? ' ' : '_';
+
+		}).join('');
 		if(keyword == knowWord) setWinner(true)
 	}, [text])
 

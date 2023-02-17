@@ -4,6 +4,7 @@ import { Router, Route } from 'wouter'
 import Game from './Pages/Game'
 import MainMenu from './Pages/MainMenu'
 import Settings from './Pages/Settings'
+import Categories from './Pages/Categories'
 import useHashLocation from './Hook/useHashLocation'
 
 import { SettingsContextProvider } from './Context/SettingsContext'
@@ -16,6 +17,7 @@ ReactDOM.render(
 					<Route path="/" component={MainMenu} />
 					<Route path="/game" component={Game} />
 					<Route path="/settings" component={Settings} />
+					<Route path="/select-category" component={Categories} />
 				</div>
 			</SettingsContextProvider>
 		</Router>

@@ -9,7 +9,7 @@ export default function MainMenu() {
 	const { dictionary } = useContext(SettingsContext);
 
 	const onPressPlay = () => {
-		setLocation('/game')
+		setLocation('/select-category')
 	}
 	const onPressSettings = () => {
 		setLocation('/settings')

@@ -5,6 +5,9 @@ export default function UnknownWord({keyword = '', input} = props) {
 		const inKeyword = input.indexOf(letter) !== -1;
 		const unknownLetter = inKeyword ? letter : '';
 
+		if(letter == ' ') {
+			return <div key={index} className={classes.spacing}>_</div>
+		}
 		return <div key={index} className={classes.letter} data-letter={unknownLetter} data-actived={inKeyword}>_</div>
 	})
 
