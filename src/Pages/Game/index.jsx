@@ -51,7 +51,7 @@ export default function Game() {
 		setWinner(false)
 
 		// Set other keyword
-		setKeyword(random(dictionary.words))
+		setKeyword(cleanKeyword(random(dictionary.words[category])))
 	}
 
 	//
