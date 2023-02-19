@@ -1,12 +1,12 @@
 .container {
-    display: flex;
-    padding: 1em;
-    gap: .5em;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  padding: 1em;
+  gap: 0.5em;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .title {
-    margin-top: 1.5em;
-    text-align: center;
+  margin-top: 1.5em;
+  text-align: center;
 }

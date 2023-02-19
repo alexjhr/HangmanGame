@@ -1,26 +1,26 @@
 .keyboard {
-	border-top: solid 2px #41403E;
-	bottom: 0;
-	position: absolute;
-	display: flex;
-	flex-wrap: wrap;
-	width: 100%;
-	justify-content: space-around;
+  border-top: solid 2px #41403e;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
 }
 
 .button {
-	flex-basis: 6vw;
-	font-size: 1.5em;
-	padding: 0.4em;
-	cursor: pointer;
-	background: #fff;
-	border: none;
-	font-family: xkcd-script;
-	text-transform: capitalize;
+  flex-basis: 6vw;
+  font-size: 1.5em;
+  padding: 0.4em;
+  cursor: pointer;
+  background: #fff;
+  border: none;
+  font-family: xkcd-script;
+  text-transform: capitalize;
 }
 
 @media (min-width: 900px) {
-	.button {
-		flex-basis: initial;
-	}
+  .button {
+    flex-basis: initial;
+  }
 }

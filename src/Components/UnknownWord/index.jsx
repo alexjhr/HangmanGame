@@ -1,17 +1,34 @@
 import classes from './index.module.css'
+import PropTypes from 'prop-types'
 
-export default function UnknownWord({keyword = '', input} = props) {
-	const keywordCodified = keyword.split('').map((letter, index) => {
-		const inKeyword = input.indexOf(letter) !== -1;
-		const unknownLetter = inKeyword ? letter : '';
+UnknownWord.propTypes = {
+  keyword: PropTypes.string,
+  input: PropTypes.string
+}
 
-		if(letter == ' ') {
-			return <div key={index} className={classes.spacing}>_</div>
-		}
-		return <div key={index} className={classes.letter} data-letter={unknownLetter} data-actived={inKeyword}>_</div>
-	})
+export default function UnknownWord({ keyword = '', input }) {
+  const keywordCodified = keyword.split('').map((letter, index) => {
+    const inKeyword = input.indexOf(letter) !== -1
+    const unknownLetter = inKeyword ? letter : ''
 
-	return <section className={classes.container}>
-		{keywordCodified}
-	</section>
+    if (letter === ' ') {
+      return (
+        <div key={index} className={classes.spacing}>
+          _
+        </div>
+      )
+    }
+    return (
+      <div
+        key={index}
+        className={classes.letter}
+        data-letter={unknownLetter}
+        data-actived={inKeyword}
+      >
+        _
+      </div>
+    )
+  })
+
+  return <section className={classes.container}>{keywordCodified}</section>
 }

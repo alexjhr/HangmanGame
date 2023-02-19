@@ -1,21 +1,21 @@
 .container {
-	margin-top: 2em;
-	max-height: 40vh;
-	width: 100%;
-	display: inline-flex;
-	justify-content: center;
+  margin-top: 2em;
+  max-height: 40vh;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
 }
 
 .stickman {
-	width: 50%;
+  width: 50%;
 }
 
 @media (min-width: 900px) {
-	.container {
-		margin-top: 1em;
-		max-height: 55vh;
-	}
-	.stickman {
-		width: fit-content;
-	}	
+  .container {
+    margin-top: 1em;
+    max-height: 55vh;
+  }
+  .stickman {
+    width: fit-content;
+  }
 }

@@ -6,23 +6,28 @@ import SettingsContext from '../../Context/SettingsContext'
 import BackButton from '../../Components/BackButton'
 
 export default function Categories() {
-	const [_, setLocation] = useLocation();
-	const { dictionary, setCategory } = useContext(SettingsContext);
+  const [, setLocation] = useLocation()
+  const { dictionary, setCategory } = useContext(SettingsContext)
 
-	const buttons = Object.keys(dictionary.words).map((category) => {
-		return [dictionary['words_category_' + category], () => {
-			setCategory(category);
-			setLocation('/game');
-		}];
-	});
+  const buttons = Object.keys(dictionary.words).map((category) => {
+    return [
+      dictionary['words_category_' + category],
+      () => {
+        setCategory(category)
+        setLocation('/game')
+      }
+    ]
+  })
 
-	return <>
-		<BackButton />
+  return (
+    <>
+      <BackButton />
 
-		<div className={classes.container}>
-			<h1 className={classes.title}>{dictionary.words_categories}</h1>
-		
-			<Button key='categorybtn' buttons={buttons}/>
-		</div>
-	</>
+      <div className={classes.container}>
+        <h1 className={classes.title}>{dictionary.words_categories}</h1>
+
+        <Button key='categorybtn' buttons={buttons} />
+      </div>
+    </>
+  )
 }

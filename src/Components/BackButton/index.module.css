@@ -1,10 +1,10 @@
 .back {
-	background: none;
-	border: none;
-	color: rgb(40, 40, 40);
-	cursor: pointer;
-	font-family: xkcd-script;
-	font-size: 1.2em;
-	outline: none;
-	margin: .6em;
+  background: none;
+  border: none;
+  color: rgb(40, 40, 40);
+  cursor: pointer;
+  font-family: xkcd-script;
+  font-size: 1.2em;
+  outline: none;
+  margin: 0.6em;
 }

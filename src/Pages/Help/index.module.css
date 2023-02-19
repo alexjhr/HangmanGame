@@ -1,14 +1,14 @@
 .info {
-    text-align: center;
-    display: block;
-    margin: auto;
+  text-align: center;
+  display: block;
+  margin: auto;
 }
 
 .info ul {
-    margin-right: 2em;
+  margin-right: 2em;
 }
 
 .info li {
-    margin: 1em;
-    text-align: justify;
+  margin: 1em;
+  text-align: justify;
 }

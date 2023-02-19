@@ -1,21 +1,21 @@
 .settings {
-	display: flex;
-	flex-direction: row;
-	margin: 1.5em;
-	padding: .5em 1.5em;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin: 1.5em;
+  padding: 0.5em 1.5em;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 
-	/* Thanks to https://codepen.io/tmrDevelops/pen/VeRvKX*/
-	border: solid 2px #41403E;
-	border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  /* Thanks to https://codepen.io/tmrDevelops/pen/VeRvKX*/
+  border: solid 2px #41403e;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
 }
 
 .settingsTitle {
-	margin: 0;
-	margin-bottom: .5em;
-	font-size: 1.4em;
-	font-weight: 200;
-	text-align: center;
+  margin: 0;
+  margin-bottom: 0.5em;
+  font-size: 1.4em;
+  font-weight: 200;
+  text-align: center;
 }

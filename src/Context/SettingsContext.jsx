@@ -1,55 +1,68 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 
 const Context = React.createContext({})
 
-export function SettingsContextProvider ({children}) {
-	const defaultSettings = JSON.parse(window.localStorage.getItem('hangman'));
+SettingsContextProvider.propTypes = {
+  children: PropTypes.node.isRequired
+}
+export function SettingsContextProvider({ children }) {
+  const defaultSettings = JSON.parse(window.localStorage.getItem('hangman'))
 
-	const [language, setLanguage] = useState(
-		defaultSettings?.language || 'en'
-	)
-	const [enableSound, setEnableSound] = useState(
-		defaultSettings === null ? true : defaultSettings.enableSound
-	)
-	const [category, setCategory] = useState('');
-		
-	const [loaded, setLoaded] = useState(false)
-	const [dictionary, setDictionary] = useState({})
+  const [language, setLanguage] = useState(defaultSettings?.language || 'en')
+  const [enableSound, setEnableSound] = useState(
+    defaultSettings === null ? true : defaultSettings.enableSound
+  )
+  const [category, setCategory] = useState('')
 
-	const updateSettings = () => {
-		const updateJSON = JSON.stringify({
-			language,
-			enableSound
-		})
-		window.localStorage.setItem('hangman', updateJSON)
-	}
-	if(defaultSettings?.language != language || defaultSettings?.enableSound != enableSound) {
-		updateSettings()
-	}
+  const [loaded, setLoaded] = useState(false)
+  const [dictionary, setDictionary] = useState({})
 
-	useEffect(function() {
-		fetch(`./lang/${language}.json`)
-		.then((res) => res.json())
-		.then((data) => setDictionary(data))
-	}, [language])
+  const updateSettings = () => {
+    const updateJSON = JSON.stringify({
+      language,
+      enableSound
+    })
+    window.localStorage.setItem('hangman', updateJSON)
+  }
+  if (
+    defaultSettings?.language !== language ||
+    defaultSettings?.enableSound !== enableSound
+  ) {
+    updateSettings()
+  }
 
-	useEffect(function() {
-		if(dictionary.name !== undefined) setLoaded(true)
-	}, [dictionary])
+  useEffect(
+    function () {
+      fetch(`./lang/${language}.json`)
+        .then((res) => res.json())
+        .then((data) => setDictionary(data))
+    },
+    [language]
+  )
 
-	const provider = {
-		category,
-		language,
-		dictionary,
-		enableSound,
+  useEffect(
+    function () {
+      if (dictionary.name !== undefined) setLoaded(true)
+    },
+    [dictionary]
+  )
 
-		setLanguage,
-		setCategory,
-		setEnableSound,
-	}
-	return <Context.Provider value={provider}>
-		{loaded ? children : ''}
-	</Context.Provider>
+  const provider = {
+    category,
+    language,
+    dictionary,
+    enableSound,
+
+    setLanguage,
+    setCategory,
+    setEnableSound
+  }
+  return (
+    <Context.Provider value={provider}>
+      {loaded ? children : ''}
+    </Context.Provider>
+  )
 }
 
 export default Context

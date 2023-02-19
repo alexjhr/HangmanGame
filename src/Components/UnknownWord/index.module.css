@@ -1,31 +1,32 @@
 .container {
-	display: flex;
-	width: 100%;
-	justify-content: center;
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
-.letter, .spacing {
-	font-size: calc(4vw + 4vh);
-	font-family: xkcd-script;
-	display: inline-block;
-	text-transform: capitalize; 
+.letter,
+.spacing {
+  font-size: calc(4vw + 4vh);
+  font-family: xkcd-script;
+  display: inline-block;
+  text-transform: capitalize;
 }
 
 .spacing {
-	color: #fff;
+  color: #fff;
 }
 
-.letter[data-actived=true]::before {
-	content: attr(data-letter);
-	display: inline-flex;
-	font-size: .7em;
-	position: absolute;
-	width: .8em;
-	justify-content: center;
+.letter[data-actived='true']::before {
+  content: attr(data-letter);
+  display: inline-flex;
+  font-size: 0.7em;
+  position: absolute;
+  width: 0.8em;
+  justify-content: center;
 }
 
 @media (min-width: 900px) {
-	.letter {
-		font-size: calc(3vw + 3vh);
-	}
+  .letter {
+    font-size: calc(3vw + 3vh);
+  }
 }

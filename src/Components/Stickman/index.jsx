@@ -1,9 +1,16 @@
-import {stickman, container} from './index.module.css'
+import { stickman, container } from './index.module.css'
+import PropTypes from 'prop-types'
 
-export default function Stickman({mistakes} = props) {
-	const imgUrl = `./assets/game${mistakes}.png`;
+Stickman.propTypes = {
+  mistakes: PropTypes.number
+}
 
-	return <div className={container}>
-		<img src={imgUrl} className={stickman} alt="Game stickman base" />
-	</div>
+export default function Stickman({ mistakes }) {
+  const imgUrl = `./assets/game${mistakes}.png`
+
+  return (
+    <div className={container}>
+      <img src={imgUrl} className={stickman} alt='Game stickman base' />
+    </div>
+  )
 }
