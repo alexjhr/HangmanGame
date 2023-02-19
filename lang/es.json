@@ -124,5 +124,6 @@
 			"estrella de mar",
 			"caracol"
 		]
-	}
+	},
+	"game_help_info": "C\u00F3mo jugar al Ahorcadito:\r\n<ul>\r\n\t<li>El juego del Ahorcado es un juego en el que debes adivinar una palabra secreta letra por letra, teniendo en cuenta que tienes un n\u00FAmero limitado de intentos.<\/li>\r\n\t<li>El objetivo es adivinar la palabra secreta antes de que se completen los dibujos del ahorcado. En este juego, el n\u00FAmero de intentos permitidos es de 6.<\/li>\r\n\t<li>Al comienzo del juego, la computadora mostrar\u00E1 el n\u00FAmero de letras en la palabra secreta mediante guiones bajos. Por ejemplo, si la palabra secreta es \"hola\", se mostrar\u00E1 \"_ _ _ _\" en la pantalla.<\/li>\r\n\t<li>Debes intentar adivinar la palabra secreta seleccionando una letra en la pantalla. Si la letra que elegiste est\u00E1 en la palabra secreta, se mostrar\u00E1 la letra en los espacios correspondientes.<\/li>\r\n\t<li>Si adivinas todas las letras de la palabra secreta antes de que se agoten los intentos, ganar\u00E1s el juego. Si agotas tus intentos antes de adivinar la palabra, perder\u00E1s el juego.<\/li>\r\n\t<li>\u00A1Divi\u00E9rtete y buena suerte!<\/li>\r\n<\/ul>\r\n"
 }
