@@ -8,6 +8,7 @@ import Categories from './Pages/Categories'
 import useHashLocation from './Hook/useHashLocation'
 
 import { SettingsContextProvider } from './Context/SettingsContext'
+import Help from './Pages/Help'
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.render(
 					<Route path="/" component={MainMenu} />
 					<Route path="/game" component={Game} />
 					<Route path="/settings" component={Settings} />
+					<Route path="/help" component={Help} />
 					<Route path="/select-category" component={Categories} />
 				</div>
 			</SettingsContextProvider>

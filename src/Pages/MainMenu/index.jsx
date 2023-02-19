@@ -8,29 +8,16 @@ export default function MainMenu() {
 	const [_, setLocation] = useLocation();
 	const { dictionary } = useContext(SettingsContext);
 
-	const onPressPlay = () => {
-		setLocation('/select-category')
-	}
-	const onPressSettings = () => {
-		setLocation('/settings')
-	}
-	const onPressHelp = () => {
-
-	}
-	const onPressAbout = () => {
-
-	}
-
 	const buttons = [
 		[
-			[dictionary.game_play, onPressPlay]
+			[dictionary.game_play, () => setLocation('/select-category')]
 		],
 		[
-			[dictionary.game_settings, onPressSettings]
+			[dictionary.game_settings, () => setLocation('/settings')]
 		],
 		[
-			[dictionary.game_help, onPressHelp],
-			[dictionary.game_about, onPressAbout]
+			[dictionary.game_help, () => setLocation('/help')],
+			[dictionary.game_about, () => setLocation('#')]
 		]
 	]
 
