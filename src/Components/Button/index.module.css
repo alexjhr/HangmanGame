@@ -22,10 +22,11 @@
 }
 
 .button::after {
-  font-size: calc(1em * 0.6);
+  letter-spacing: 1px;
+  font-size: 0.8em;
   content: attr(description);
   display: flex;
-  color: rgb(80, 80, 80);
+  color: rgb(100, 100, 80);
   justify-content: center;
 }
 
