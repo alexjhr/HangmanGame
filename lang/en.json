@@ -17,6 +17,7 @@
 	"game_sound": "Sound",
 	"game_enabled": "Enabled",
 	"game_disabled": "Disabled",
+	"settings_keyword_hint": "Initial hint",
 	"words_categories": "Categories",
 	"words_category_food": "Food",
 	"words_category_animals": "Animals",
