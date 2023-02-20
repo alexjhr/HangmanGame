@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import Button from '../../Components/Button'
 import classes from './index.module.css'
 import SettingsContext from '../../Context/SettingsContext'
+import packageJson from '../../../package.json'
 
 export default function MainMenu() {
   const [, setLocation] = useLocation()
@@ -24,6 +25,9 @@ export default function MainMenu() {
       {buttons.map((button, i) => (
         <Button key={'mainbutton' + i} buttons={button} />
       ))}
+      <div className={classes.version}>
+        {dictionary.version + ' ' + packageJson.version}
+      </div>
     </div>
   )
 }

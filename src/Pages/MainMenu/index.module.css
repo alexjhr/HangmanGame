@@ -10,3 +10,10 @@
   margin-top: 1.5em;
   text-align: center;
 }
+
+.version {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 1em;
+}
