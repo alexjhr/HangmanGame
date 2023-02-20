@@ -13,6 +13,9 @@ export function SettingsContextProvider({ children }) {
   const [enableSound, setEnableSound] = useState(
     savedSettings?.enableSound || true
   )
+  const [keywordHint, setKeywordHint] = useState(
+    savedSettings?.keywordHint || true
+  )
   const [language, setLanguage] = useState(savedSettings?.language || 'en')
 
   const [dictionary, setDictionary] = useState({})
@@ -21,11 +24,13 @@ export function SettingsContextProvider({ children }) {
   if (
     savedSettings?.language !== language ||
     savedSettings?.enableSound !== enableSound ||
-    savedSettings?.lastCategory !== category
+    savedSettings?.lastCategory !== category ||
+    savedSettings?.keywordHint !== keywordHint
   ) {
     const updateJSON = JSON.stringify({
       language,
       enableSound,
+      keywordHint,
       lastCategory: category
     })
     window.localStorage.setItem('hangman', updateJSON)
@@ -52,7 +57,9 @@ export function SettingsContextProvider({ children }) {
     language,
     dictionary,
     enableSound,
+    keywordHint,
 
+    setKeywordHint,
     setLanguage,
     setCategory,
     setEnableSound

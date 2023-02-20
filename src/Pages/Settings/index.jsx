@@ -7,8 +7,15 @@ import SettingsContext from '../../Context/SettingsContext'
 const LANGUAGES = ['en', 'es']
 
 export default function Settings() {
-  const { language, setLanguage, dictionary, enableSound, setEnableSound } =
-    useContext(SettingsContext)
+  const {
+    dictionary,
+    language,
+    setLanguage,
+    enableSound,
+    setEnableSound,
+    keywordHint,
+    setKeywordHint
+  } = useContext(SettingsContext)
 
   return (
     <>
@@ -19,6 +26,19 @@ export default function Settings() {
         <h4 className={classes.settingsTitle}>{dictionary.game_language}</h4>
         <Select values={LANGUAGES} update={setLanguage} value={language}>
           {dictionary.name}
+        </Select>
+      </section>
+
+      <section className={classes.settings}>
+        <h4 className={classes.settingsTitle}>
+          {dictionary.settings_keyword_hint}
+        </h4>
+        <Select
+          values={[true, false]}
+          update={setKeywordHint}
+          value={keywordHint}
+        >
+          {keywordHint ? dictionary.game_enabled : dictionary.game_disabled}
         </Select>
       </section>
 

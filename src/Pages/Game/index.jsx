@@ -22,10 +22,16 @@ export default function Game() {
   const [mistakes, setMistake] = useState(0)
   const [text, setText] = useState('')
   const [winner, setWinner] = useState(false)
-  const { dictionary, category, enableSound } = useContext(SettingsContext)
+  const { keywordHint, dictionary, category, enableSound } =
+    useContext(SettingsContext)
+
   const [keyword, setKeyword] = useState(
     cleanKeyword(random(dictionary.words[category]))
   )
+
+  if (!text && keywordHint) {
+    setText(random(keyword.split('')))
+  }
 
   const [playHanging, { stop: stopHanging }] = useSound(hangingSfx)
   const [playGameOver, { stop: stopGameOver }] = useSound(gameoverSfx)
@@ -47,12 +53,13 @@ export default function Game() {
     }
 
     // Reset game vars
-    setText('')
     setMistake(0)
     setWinner(false)
 
-    // Set other keyword
-    setKeyword(cleanKeyword(random(dictionary.words[category])))
+    const NEW_KEYWORD = cleanKeyword(random(dictionary.words[category]))
+    setKeyword(NEW_KEYWORD)
+
+    if (keywordHint) setText(random(NEW_KEYWORD.split('')))
   }
 
   //
