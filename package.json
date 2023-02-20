@@ -3,7 +3,7 @@
   "base": "/HangedGame/",
   "name": "hangedgame",
   "private": true,
-  "version": "1.2.0",
+  "version": "1.2.1",
   "scripts": {
     "deploy": "gh-pages -d dist",
     "predeploy": "npm run build",
