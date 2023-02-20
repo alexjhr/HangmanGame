@@ -18,7 +18,7 @@
 	"game_enabled": "Enabled",
 	"game_disabled": "Disabled",
 	"settings_keyword_hint": "Initial hint",
-	"categories_title": "Categories",
+	"categories_title": "Select a category",
 	"categories": {
 		"food": {
 			"name": "Food",
