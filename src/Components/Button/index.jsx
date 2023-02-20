@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 
 Button.propTypes = {
   children: PropTypes.node,
-  onPress: PropTypes.func.isRequired,
+  onPress: PropTypes.func,
   buttons: PropTypes.array.isRequired
 }
 
