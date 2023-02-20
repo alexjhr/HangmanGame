@@ -34,22 +34,22 @@ export default function Settings() {
           {dictionary.settings_keyword_hint}
         </h4>
         <Select
-          values={[true, false]}
+          values={['enabled', 'disabled']}
           update={setKeywordHint}
           value={keywordHint}
         >
-          {keywordHint ? dictionary.game_enabled : dictionary.game_disabled}
+          {dictionary['game_' + keywordHint]}
         </Select>
       </section>
 
       <section className={classes.settings}>
         <h4 className={classes.settingsTitle}>{dictionary.game_sound}</h4>
         <Select
-          values={[true, false]}
+          values={['enabled', 'disabled']}
           update={setEnableSound}
           value={enableSound}
         >
-          {enableSound ? dictionary.game_enabled : dictionary.game_disabled}
+          {dictionary['game_' + enableSound]}
         </Select>
       </section>
     </>

@@ -7,7 +7,7 @@ SettingsContextProvider.propTypes = {
   children: PropTypes.node.isRequired
 }
 export function SettingsContextProvider({ children }) {
-  const savedSettings = JSON.parse(window.localStorage.getItem('hangman'))
+  let savedSettings = JSON.parse(window.localStorage.getItem('hangman'))
 
   const [category, setCategory] = useState(savedSettings?.lastCategory || '')
   const [enableSound, setEnableSound] = useState(
@@ -17,40 +17,28 @@ export function SettingsContextProvider({ children }) {
     savedSettings?.keywordHint || true
   )
   const [language, setLanguage] = useState(savedSettings?.language || 'en')
+  const [dictionary, setDictionary] = useState(false)
 
-  const [dictionary, setDictionary] = useState({})
-  const [loaded, setLoaded] = useState(false)
+  const fetchDictionaryData = async () => {
+    const data = await fetch(`./lang/${language}.json`)
 
-  if (
-    savedSettings?.language !== language ||
-    savedSettings?.enableSound !== enableSound ||
-    savedSettings?.lastCategory !== category ||
-    savedSettings?.keywordHint !== keywordHint
-  ) {
-    const updateJSON = JSON.stringify({
-      language,
-      enableSound,
-      keywordHint,
-      lastCategory: category
-    })
-    window.localStorage.setItem('hangman', updateJSON)
+    setDictionary(await data.json())
   }
 
-  useEffect(
-    function () {
-      fetch(`./lang/${language}.json`)
-        .then((res) => res.json())
-        .then((data) => setDictionary(data))
-    },
-    [language]
-  )
+  useEffect(() => {
+    if (!dictionary) fetchDictionaryData()
+    else {
+      if (savedSettings?.language !== language) fetchDictionaryData()
 
-  useEffect(
-    function () {
-      if (dictionary.name !== undefined) setLoaded(true)
-    },
-    [dictionary]
-  )
+      savedSettings = {
+        language,
+        enableSound,
+        keywordHint,
+        lastCategory: category
+      }
+      window.localStorage.setItem('hangman', JSON.stringify(savedSettings))
+    }
+  }, [language, enableSound, category, keywordHint])
 
   const provider = {
     category,
@@ -64,11 +52,12 @@ export function SettingsContextProvider({ children }) {
     setCategory,
     setEnableSound
   }
-  return (
-    <Context.Provider value={provider}>
-      {loaded ? children : ''}
-    </Context.Provider>
-  )
+
+  if (!dictionary) {
+    return ''
+  }
+
+  return <Context.Provider value={provider}>{children}</Context.Provider>
 }
 
 export default Context
