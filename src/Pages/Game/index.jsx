@@ -30,7 +30,7 @@ export default function Game() {
     cleanKeyword(random(dictionary.categories[category].words))
   )
 
-  if (!text && keywordHint) {
+  if (!text && isSelected(keywordHint)) {
     setText(random(keyword.split('')))
   }
 
@@ -62,7 +62,7 @@ export default function Game() {
     )
     setKeyword(NEW_KEYWORD)
 
-    if (keywordHint) setText(random(NEW_KEYWORD.split('')))
+    if (isSelected(keywordHint)) setText(random(NEW_KEYWORD.split('')))
   }
 
   //
