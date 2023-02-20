@@ -27,7 +27,7 @@ export default function Game() {
     useContext(SettingsContext)
 
   const [keyword, setKeyword] = useState(
-    cleanKeyword(random(dictionary.words[category]))
+    cleanKeyword(random(dictionary.categories[category].words))
   )
 
   if (!text && keywordHint) {
@@ -57,7 +57,9 @@ export default function Game() {
     setMistake(0)
     setWinner(false)
 
-    const NEW_KEYWORD = cleanKeyword(random(dictionary.words[category]))
+    const NEW_KEYWORD = cleanKeyword(
+      random(dictionary.categories[category].words)
+    )
     setKeyword(NEW_KEYWORD)
 
     if (keywordHint) setText(random(NEW_KEYWORD.split('')))

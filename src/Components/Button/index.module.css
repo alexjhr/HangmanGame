@@ -6,9 +6,9 @@
 
 .button {
   font-family: xkcd-script;
-  font-size: 0.8em;
+  font-size: 1em;
   font-weight: bold;
-  padding: 1em;
+  padding: 0.6em;
   background: rgba(0, 0, 0, 0.03);
   color: rgb(40, 40, 40);
   cursor: pointer;
@@ -19,6 +19,14 @@
   /* Thanks to https://codepen.io/tmrDevelops/pen/VeRvKX*/
   border: solid 2px #41403e;
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+.button::after {
+  font-size: calc(1em * 0.6);
+  content: attr(description);
+  display: flex;
+  color: rgb(80, 80, 80);
+  justify-content: center;
 }
 
 .button:hover {

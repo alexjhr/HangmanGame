@@ -10,10 +10,11 @@ import PropTypes from 'prop-types'
 Button.propTypes = {
   children: PropTypes.node,
   onPress: PropTypes.func,
-  buttons: PropTypes.array.isRequired
+  buttons: PropTypes.array,
+  description: PropTypes.string
 }
 
-export default function Button({ children, onPress, buttons }) {
+export default function Button({ children, onPress, buttons, description }) {
   const [play] = useSound(buttonSfx)
   const { enableSound } = useContext(SettingsContext)
 
@@ -26,9 +27,11 @@ export default function Button({ children, onPress, buttons }) {
   if (children) {
     return (
       <button
+        is
         key={children}
         className={classes.button}
         onClick={() => onClick(onPress)}
+        description={description}
       >
         {children}
       </button>
@@ -39,9 +42,11 @@ export default function Button({ children, onPress, buttons }) {
     <div className={classes.buttons}>
       {buttons.map((btn) => (
         <button
+          is
           key={btn[0]}
           className={classes.button}
           onClick={() => onClick(btn[1])}
+          description={btn[2]}
         >
           {btn[0]}
         </button>
