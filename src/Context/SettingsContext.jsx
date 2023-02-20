@@ -7,29 +7,28 @@ SettingsContextProvider.propTypes = {
   children: PropTypes.node.isRequired
 }
 export function SettingsContextProvider({ children }) {
-  const defaultSettings = JSON.parse(window.localStorage.getItem('hangman'))
+  const savedSettings = JSON.parse(window.localStorage.getItem('hangman'))
 
-  const [language, setLanguage] = useState(defaultSettings?.language || 'en')
+  const [category, setCategory] = useState(savedSettings?.lastCategory || '')
   const [enableSound, setEnableSound] = useState(
-    defaultSettings === null ? true : defaultSettings.enableSound
+    savedSettings?.enableSound || true
   )
-  const [category, setCategory] = useState('')
+  const [language, setLanguage] = useState(savedSettings?.language || 'en')
 
-  const [loaded, setLoaded] = useState(false)
   const [dictionary, setDictionary] = useState({})
+  const [loaded, setLoaded] = useState(false)
 
-  const updateSettings = () => {
+  if (
+    savedSettings?.language !== language ||
+    savedSettings?.enableSound !== enableSound ||
+    savedSettings?.lastCategory !== category
+  ) {
     const updateJSON = JSON.stringify({
       language,
-      enableSound
+      enableSound,
+      lastCategory: category
     })
     window.localStorage.setItem('hangman', updateJSON)
-  }
-  if (
-    defaultSettings?.language !== language ||
-    defaultSettings?.enableSound !== enableSound
-  ) {
-    updateSettings()
   }
 
   useEffect(
