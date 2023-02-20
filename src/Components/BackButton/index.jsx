@@ -1,6 +1,7 @@
 import { back } from './index.module.css'
 import { useLocation } from 'wouter'
 import { useContext } from 'react'
+import { isSelected } from '../Select'
 import SettingsContext from '../../Context/SettingsContext'
 
 import useSound from 'use-sound'
@@ -12,9 +13,8 @@ export default function BackButton() {
   const { dictionary, enableSound } = useContext(SettingsContext)
 
   const onClickButton = () => {
-    if (enableSound) {
-      play()
-    }
+    if (isSelected(enableSound)) play()
+
     setLocation('/')
   }
   return (

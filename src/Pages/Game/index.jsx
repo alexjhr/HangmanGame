@@ -6,6 +6,7 @@ import UnknownWord from '../../Components/UnknownWord'
 import Dialog from '../../Components/Dialog'
 import BackButton from '../../Components/BackButton'
 import SettingsContext from '../../Context/SettingsContext'
+import { isSelected } from '../../Components/Select'
 
 import hangingSfx from '../../Sounds/sfx_hanging.wav'
 import gameoverSfx from '../../Sounds/sfx_gameover.wav'
@@ -46,7 +47,7 @@ export default function Game() {
 
   const onRestartGame = () => {
     // Stop audio
-    if (enableSound) {
+    if (isSelected(enableSound)) {
       stopWin()
       stopHanging()
       stopGameOver()
@@ -79,7 +80,7 @@ export default function Game() {
 
   // Show message box "you lost"?
   const isLoser = mistakes >= 6
-  if (enableSound) {
+  if (isSelected(enableSound)) {
     if (isLoser) {
       // Play lose sounds
       playHanging()

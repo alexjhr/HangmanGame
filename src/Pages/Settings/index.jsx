@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import classes from './index.module.css'
-import Select from '../../Components/Select/'
+import { Select } from '../../Components/Select/'
 import BackButton from '../../Components/BackButton'
 import SettingsContext from '../../Context/SettingsContext'
 

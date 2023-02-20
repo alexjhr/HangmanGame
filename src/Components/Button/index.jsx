@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import SettingsContext from '../../Context/SettingsContext'
 import classes from './index.module.css'
+import { isSelected } from '../Select'
 
 import useSound from 'use-sound'
 import buttonSfx from '../../Sounds/sfx_button.wav'
@@ -17,9 +18,8 @@ export default function Button({ children, onPress, buttons }) {
   const { enableSound } = useContext(SettingsContext)
 
   const onClick = (callback) => {
-    if (enableSound) {
-      play()
-    }
+    if (isSelected(enableSound)) play()
+
     return callback()
   }
 

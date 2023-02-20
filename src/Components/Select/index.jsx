@@ -13,22 +13,26 @@ Select.propTypes = {
   children: PropTypes.node
 }
 
-export default function Select({ value, update, values, children }) {
+export function isSelected(value) {
+  const array = { enabled: true, disabled: false }
+
+  return array[value]
+}
+
+export function Select({ value, update, values, children }) {
   const [play] = useSound(buttonSfx)
   const { enableSound } = useContext(SettingsContext)
 
   const onBack = () => {
-    if (enableSound) {
-      play()
-    }
+    if (isSelected(enableSound)) play()
+
     const backOption = values[values.indexOf(value) - 1]
     update(backOption !== undefined ? backOption : values[values.length - 1])
   }
 
   const onNext = () => {
-    if (enableSound) {
-      play()
-    }
+    if (isSelected(enableSound)) play()
+
     const nextOption = values[values.indexOf(value) + 1]
     update(nextOption !== undefined ? nextOption : values[0])
   }
