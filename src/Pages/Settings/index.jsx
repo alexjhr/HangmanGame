@@ -4,10 +4,9 @@ import { Select } from '../../Components/Select/'
 import BackButton from '../../Components/BackButton'
 import SettingsContext from '../../Context/SettingsContext'
 
-const LANGUAGES = ['en', 'es']
-
 export default function Settings() {
   const {
+    LANGUAGES,
     dictionary,
     language,
     setLanguage,
@@ -17,6 +16,8 @@ export default function Settings() {
     setKeywordHint
   } = useContext(SettingsContext)
 
+  const AvailableLangs = Object.keys(LANGUAGES)
+
   return (
     <>
       <BackButton />
@@ -24,7 +25,7 @@ export default function Settings() {
 
       <section className={classes.settings}>
         <h4 className={classes.settingsTitle}>{dictionary.game_language}</h4>
-        <Select values={LANGUAGES} update={setLanguage} value={language}>
+        <Select values={AvailableLangs} update={setLanguage} value={language}>
           {dictionary.name}
         </Select>
       </section>

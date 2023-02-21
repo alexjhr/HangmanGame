@@ -1,6 +1,7 @@
 {
 	"name": "English",
 	"version": "Version",
+	"close": "Close",
 	"game_title": "Hangman Game",
 	"game_play": "Play",
 	"game_settings": "Settings",
@@ -18,6 +19,10 @@
 	"game_enabled": "Enabled",
 	"game_disabled": "Disabled",
 	"settings_keyword_hint": "Initial hint",
+	"pwa_is_ready": "App ready to work offline",
+	"pwa_updated": "App updated! ($version)",
+	"pwa_alert_updates_t": "Updates",
+	"pwa_alert_updates_d": "Activate notifications to be aware of each update!",
 	"categories_title": "Select a category",
 	"categories": {
 		"food": {

@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+// Load languages
+import EN from '../Languages/en.json'
+import ES from '../Languages/es.json'
+
+const LANGUAGES = { en: EN, es: ES }
 
 const Context = React.createContext({})
 
@@ -17,7 +22,7 @@ export function SettingsContextProvider({ children }) {
     savedSettings?.keywordHint || 'enabled'
   )
   const [language, setLanguage] = useState(savedSettings?.language || 'en')
-  const [dictionary, setDictionary] = useState(false)
+  const [dictionary, setDictionary] = useState(LANGUAGES[language])
 
   const fetchDictionaryData = async () => {
     const data = await fetch(`./lang/${language}.json`)
@@ -26,21 +31,20 @@ export function SettingsContextProvider({ children }) {
   }
 
   useEffect(() => {
-    if (!dictionary) fetchDictionaryData()
-    else {
-      if (savedSettings?.language !== language) fetchDictionaryData()
-
-      savedSettings = {
-        language,
-        enableSound,
-        keywordHint,
-        lastCategory: category
-      }
-      window.localStorage.setItem('hangman', JSON.stringify(savedSettings))
+    if (savedSettings?.language !== language) {
+      setDictionary(LANGUAGES[language])
     }
+    savedSettings = {
+      language,
+      enableSound,
+      keywordHint,
+      lastCategory: category
+    }
+    window.localStorage.setItem('hangman', JSON.stringify(savedSettings))
   }, [language, enableSound, category, keywordHint])
 
   const provider = {
+    LANGUAGES,
     category,
     language,
     dictionary,

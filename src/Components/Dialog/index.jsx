@@ -15,7 +15,7 @@ export default function Dialog({ title, children, buttons }) {
         <h1 className={classes.dialog_title}>{title}</h1>
         <p className={classes.dialog_description}>{children}</p>
 
-        <Button buttons={buttons}></Button>
+        {buttons && <Button buttons={buttons}></Button>}
       </div>
     </div>
   )
