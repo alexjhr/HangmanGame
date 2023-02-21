@@ -8,9 +8,9 @@ import BackButton from '../../Components/BackButton'
 import SettingsContext from '../../Context/SettingsContext'
 import { isSelected } from '../../Components/Select'
 
-import hangingSfx from '../../Sounds/sfx_hanging.wav'
-import gameoverSfx from '../../Sounds/sfx_gameover.wav'
-import winSfx from '../../Sounds/sfx_win.mp3'
+import hangingSfx from '../../Assets/Sounds/sfx_hanging.wav'
+import gameoverSfx from '../../Assets/Sounds/sfx_gameover.wav'
+import winSfx from '../../Assets/Sounds/sfx_win.mp3'
 
 function random(array) {
   return array[Math.floor(Math.random() * array.length)]

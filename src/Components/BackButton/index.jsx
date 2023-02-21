@@ -5,7 +5,7 @@ import { isSelected } from '../Select'
 import SettingsContext from '../../Context/SettingsContext'
 
 import useSound from 'use-sound'
-import buttonSfx from '../../Sounds/sfx_button.wav'
+import buttonSfx from '../../Assets/Sounds/sfx_button.wav'
 
 export default function BackButton() {
   const [, setLocation] = useLocation()

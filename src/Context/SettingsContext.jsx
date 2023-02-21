@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import packageJson from '../../package.json'
 
 // Load languages
-import EN from '../Languages/en.json'
-import ES from '../Languages/es.json'
+import EN from '../Assets/Languages/en.json'
+import ES from '../Assets/Languages/es.json'
 
 const LANGUAGES = { en: EN, es: ES }
 

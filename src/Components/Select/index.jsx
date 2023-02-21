@@ -3,7 +3,7 @@ import SettingsContext from '../../Context/SettingsContext'
 import classes from './index.module.css'
 
 import useSound from 'use-sound'
-import buttonSfx from '../../Sounds/sfx_button.wav'
+import buttonSfx from '../../Assets/Sounds/sfx_button.wav'
 import PropTypes from 'prop-types'
 
 Select.propTypes = {
