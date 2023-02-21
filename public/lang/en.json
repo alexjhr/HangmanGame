@@ -1,7 +1,7 @@
 {
 	"name": "English",
 	"version": "Version",
-	"game_title": "The Hanged Game",
+	"game_title": "Hangman Game",
 	"game_play": "Play",
 	"game_settings": "Settings",
 	"game_help": "Help",
@@ -133,5 +133,5 @@
 			]
 		}
 	},
-	"game_help_info": "How to play the hanged game:\r\n<ul>\r\n\t<li>The game of hanged is a game in which you must guess a secret word letter per letter, taking into account that you have a limited number of attempts.<\/li>\r\n\t<li>The objective is to guess the secret word before the hanged drawings are completed.In this game, the number of allowed attempts is 6.<\/li>\r\n\t<li>At the beginning of the game, the computer will show the number of letters in the secret word using low scripts.For example, if the secret word is \"hello\", it will be shown \"_ _ _\" on the screen.<\/li>\r\n\t<li>You should try to guess the secret word by selecting a letter on the screen.If the letter you chose is in the secret word, the letter will be shown in the corresponding spaces.<\/li>\r\n\t<li>If you guess all the letters of the secret word before attempts are exhausted, you will win the game.If you exhaust your attempts before guessing the word, you will lose the game.<\/li>\r\n\t<li>Have fun and good luck!<\/li>\r\n<\/ul>\r\n"
+	"game_help_info": "How to play the hangman game:\r\n<ul>\r\n\t<li>The hangman game is a game in which you must guess a secret word letter per letter, taking into account that you have a limited number of attempts.<\/li>\r\n\t<li>The objective is to guess the secret word before the hanged drawings are completed.In this game, the number of allowed attempts is 6.<\/li>\r\n\t<li>At the beginning of the game, the computer will show the number of letters in the secret word using low scripts.For example, if the secret word is \"hello\", it will be shown \"_ _ _\" on the screen.<\/li>\r\n\t<li>You should try to guess the secret word by selecting a letter on the screen.If the letter you chose is in the secret word, the letter will be shown in the corresponding spaces.<\/li>\r\n\t<li>If you guess all the letters of the secret word before attempts are exhausted, you will win the game.If you exhaust your attempts before guessing the word, you will lose the game.<\/li>\r\n\t<li>Have fun and good luck!<\/li>\r\n<\/ul>\r\n"
 }

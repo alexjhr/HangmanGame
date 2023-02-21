@@ -10,9 +10,9 @@ export default defineConfig({
     base: './',
     manifest: {
       display: "standalone",
-      name: "Hanged Game",
-      short_name: "Hanged Game",
-      description: "Hanged Game",
+      name: "Hangman Game",
+      short_name: "Hangman Game",
+      description: "Hangman Game",
       theme_color: "#ffffff",
       background_color: "#ffffff",
       icons: [
