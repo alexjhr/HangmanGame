@@ -11,10 +11,10 @@ export function SettingsContextProvider({ children }) {
 
   const [category, setCategory] = useState(savedSettings?.lastCategory || '')
   const [enableSound, setEnableSound] = useState(
-    savedSettings?.enableSound || true
+    savedSettings?.enableSound || 'enabled'
   )
   const [keywordHint, setKeywordHint] = useState(
-    savedSettings?.keywordHint || true
+    savedSettings?.keywordHint || 'enabled'
   )
   const [language, setLanguage] = useState(savedSettings?.language || 'en')
   const [dictionary, setDictionary] = useState(false)
