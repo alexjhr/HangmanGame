@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+import packageJson from '../../package.json'
+
 // Load languages
 import EN from '../Languages/en.json'
 import ES from '../Languages/es.json'
@@ -23,27 +25,27 @@ export function SettingsContextProvider({ children }) {
   )
   const [language, setLanguage] = useState(savedSettings?.language || 'en')
   const [dictionary, setDictionary] = useState(LANGUAGES[language])
-
-  const fetchDictionaryData = async () => {
-    const data = await fetch(`./lang/${language}.json`)
-
-    setDictionary(await data.json())
-  }
+  const [localVersion, setLocalVersion] = useState(
+    savedSettings?.lastVersion || packageJson.version
+  )
 
   useEffect(() => {
     if (savedSettings?.language !== language) {
       setDictionary(LANGUAGES[language])
     }
     savedSettings = {
+      lastVersion: localVersion,
       language,
       enableSound,
       keywordHint,
       lastCategory: category
     }
     window.localStorage.setItem('hangman', JSON.stringify(savedSettings))
-  }, [language, enableSound, category, keywordHint])
+  }, [language, enableSound, category, keywordHint, localVersion])
 
   const provider = {
+    localVersion,
+    jsonVersion: packageJson.version,
     LANGUAGES,
     category,
     language,
@@ -54,7 +56,8 @@ export function SettingsContextProvider({ children }) {
     setKeywordHint,
     setLanguage,
     setCategory,
-    setEnableSound
+    setEnableSound,
+    setLocalVersion
   }
 
   if (!dictionary) {

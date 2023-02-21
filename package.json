@@ -3,7 +3,7 @@
   "base": "/HangmanGame/",
   "name": "hangman_game",
   "private": true,
-  "version": "1.3.2",
+  "version": "1.3.3",
   "scripts": {
     "deploy": "gh-pages -d dist",
     "predeploy": "npm run build",
