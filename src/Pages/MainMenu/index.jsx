@@ -3,7 +3,6 @@ import { useContext } from 'react'
 import Button from '../../Components/Button'
 import classes from './index.module.css'
 import SettingsContext from '../../Context/SettingsContext'
-import Pwa from '../../Components/Pwa'
 
 export default function MainMenu() {
   const [, setLocation] = useLocation()
@@ -20,8 +19,6 @@ export default function MainMenu() {
 
   return (
     <>
-      <Pwa />
-
       <div className={classes.container}>
         <h1 className={classes.title}>{dictionary.game_title}</h1>
 

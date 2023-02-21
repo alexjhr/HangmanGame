@@ -8,22 +8,22 @@ import Categories from './Pages/Categories'
 import useHashLocation from './Hook/useHashLocation'
 
 import { SettingsContextProvider } from './Context/SettingsContext'
-import { PwaContextProvider } from './Context/pwaContext'
 import Help from './Pages/Help'
+import Pwa from './Components/Pwa'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router hook={useHashLocation}>
       <SettingsContextProvider>
-        <PwaContextProvider>
-          <div className='container'>
+        <div className='container'>
+          <Pwa>
             <Route path='/' component={MainMenu} />
             <Route path='/game' component={Game} />
             <Route path='/settings' component={Settings} />
             <Route path='/help' component={Help} />
             <Route path='/select-category' component={Categories} />
-          </div>
-        </PwaContextProvider>
+          </Pwa>
+        </div>
       </SettingsContextProvider>
     </Router>
   </React.StrictMode>,
