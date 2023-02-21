@@ -4,6 +4,7 @@ import Button from '../../Components/Button'
 import classes from './index.module.css'
 import SettingsContext from '../../Context/SettingsContext'
 import packageJson from '../../../package.json'
+import ReloadPrompt from '../../Components/ReloadPrompt'
 
 export default function MainMenu() {
   const [, setLocation] = useLocation()
@@ -25,6 +26,9 @@ export default function MainMenu() {
       {buttons.map((button, i) => (
         <Button key={'mainbutton' + i} buttons={button} />
       ))}
+
+      <ReloadPrompt />
+
       <div className={classes.version}>
         {dictionary.version + ' ' + packageJson.version}
       </div>

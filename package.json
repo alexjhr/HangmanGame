@@ -3,7 +3,7 @@
   "base": "/HangedGame/",
   "name": "hangedgame",
   "private": true,
-  "version": "1.2.4",
+  "version": "1.3.0",
   "scripts": {
     "deploy": "gh-pages -d dist",
     "predeploy": "npm run build",
@@ -29,6 +29,8 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
     "gh-pages": "^3.2.3",
-    "vite": "^4.0.3"
+    "vite": "^4.0.3",
+    "vite-plugin-pwa": "^0.14.4",
+    "workbox-window": "^6.5.4"
   }
 }
