@@ -19,7 +19,7 @@
 	"game_enabled": "Activado",
 	"game_disabled": "Desactivado",
 	"pwa_is_ready": "App lista para funcionar fuera de línea",
-	"pwa_updated": "Actualización ($version) aplicada!",
+	"pwa_updated": "Actualización $version aplicada!",
 	"pwa_alert_updates_t": "Actualizaciones",
 	"pwa_alert_updates_d": "¡Activa las notificaciones para estar al tanto de cada actualización!",
 	"settings_keyword_hint": "Pista inicial",

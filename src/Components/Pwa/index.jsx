@@ -21,23 +21,29 @@ export default function Pwa({ children }) {
     setNotification(result)
   }
 
+  // Obtain PWA
+  const {
+    offlineReady: [offlineReady, setOfflineReady],
+    serviceWorker
+  } = usePWA()
+
   useEffect(() => {
     // Check if can send request notification dialog
     if (notification === 'default' && !isWaiting) setWaiting(true)
     else if (isWaiting && notification !== 'default') setWaiting(false)
   }, [notification])
 
-  if (!(localVersion === jsonVersion)) {
+  useEffect(() => {
+    if (!serviceWorker) return
+    if (localVersion === jsonVersion) return
+
     setLocalVersion(jsonVersion)
 
     if (notification === 'granted') {
-      // eslint-disable-next-line no-new
-      new Notification(dictionary.pwa_updated.replace('$version', jsonVersion))
+      const notify = dictionary.pwa_updated.replace('$version', jsonVersion)
+      serviceWorker.showNotification(dictionary.game_title, { body: notify })
     }
-  }
-
-  // Obtain PWA
-  const [offlineReady, setOfflineReady] = usePWA()
+  }, [serviceWorker])
 
   const dialogBtn = [
     [
