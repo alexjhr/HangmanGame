@@ -16,7 +16,7 @@ function random(array) {
   return array[Math.floor(Math.random() * array.length)]
 }
 function cleanKeyword(keyword) {
-  return keyword.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  return keyword.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
 }
 
 export default function Game() {

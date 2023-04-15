@@ -81,6 +81,33 @@
 				"mango"
 			]
 		},
+		"countries": {
+			"name": "Countries",
+			"description": "Includes: countries; capitals",
+			"words": [
+				"spain",
+				"madrid",
+				"france",
+				"paris",
+				"italy",
+				"rome",
+				"germany",
+				"berlin",
+				"united kingdom",
+				"london",
+				"united states",
+				"new york",
+				"canada",
+				"toronto",
+				"mexico",
+				"venezuela",
+				"mexico city",
+				"brazil",
+				"rio de janeiro",
+				"argentina",
+				"buenos aires"
+			]
+		},
 		"animals": {
 			"name": "Animals",
 			"description": "Includes: names of animals",
